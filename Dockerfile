@@ -23,10 +23,9 @@ WORKDIR /app
 
 # Copy the Maven project files
 COPY ptmantra-jobs .
-RUN cd /app/ptmantra-jobs
 
 # Build the project
-RUN mvn clean install
+RUN cd /app/ptmantra-jobs && mvn clean install
 
 # Stage 2: Create a lightweight image and deploy the JAR file
 FROM openjdk:11-jre-slim
